@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import Article from "./article";
 function Articles() {
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const [articles, setArticles] = useState([]);
   const url = "https://nc-news-xnco.onrender.com/api/articles";

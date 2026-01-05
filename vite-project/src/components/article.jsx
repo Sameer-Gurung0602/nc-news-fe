@@ -4,7 +4,6 @@ function Article({ article }) {
   //votes, comment count
   //date publised
   //image
-  console.log(article);
   return (
     <>
       <Link to={`/articles/${article.article_id}`}>
