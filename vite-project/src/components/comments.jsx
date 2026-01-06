@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import Comment from "./comment";
 function Comments() {
   let params = useParams();
   let article_id = params.article_id;
@@ -24,9 +25,21 @@ function Comments() {
         setIsLoading(false);
       });
   });
+
+  if (isLoading) {
+    <p>Loading...</p>;
+  }
+  if (error) {
+    <p>Error</p>;
+  }
   return (
     <div>
       <h2>Comments</h2>
+      <ol>
+        {comments.map((comment) => (
+          <Comment key={comment.comment_id} comment={comment} />
+        ))}
+      </ol>
     </div>
   );
 }
