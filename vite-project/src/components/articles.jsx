@@ -6,12 +6,11 @@ function Articles() {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const [articles, setArticles] = useState([]);
-  const url = "https://nc-news-xnco.onrender.com/api/articles";
   //extract out axios
 
   useEffect(() => {
     axios
-      .get(url)
+      .get("https://nc-news-xnco.onrender.com/api/articles")
       .then(({ data }) => {
         setIsLoading(false);
         setArticles(data.articles);
@@ -30,14 +29,17 @@ function Articles() {
     <p>Error</p>;
   }
   return (
-    <div class="articles">
-      <h2>Articles</h2>
-      <ol>
-        {articles.map((article) => (
-          <Article key={article.article_id} article={article} />
-        ))}
-      </ol>
-    </div>
+    <>
+      <h2 id="articles-header">Articles</h2>
+
+      <div class="card-container">
+        <ol>
+          {articles.map((article) => (
+            <Article key={article.article_id} article={article} />
+          ))}
+        </ol>
+      </div>
+    </>
   );
 }
 

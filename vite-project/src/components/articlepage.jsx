@@ -3,10 +3,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
 import Comments from "./comments";
-import upvoteEmpty from "../assets/upvoteEmpty.svg";
-import upvotedFilled from "../assets/upvotedFilled.svg";
-import downvoteEmpty from "../assets/downvoteEmpty.svg";
-import downvoteFilled from "../assets/downvoteFilled.svg";
+import Votes from "./votes";
 
 function ArticlePage() {
   let params = useParams();
@@ -45,13 +42,7 @@ function ArticlePage() {
       <p>{article.author}</p>
       <p>{article.created_at.slice(0, 10)}</p>
       <p>{article.body}</p>
-      <p>votes: {article.votes}</p>
-      <button>
-        <img src={upvoteEmpty} alt="" />
-      </button>{" "}
-      <button>
-        <img src={downvoteEmpty} alt="" />
-      </button>
+      <Votes vote={article.votes}></Votes>
       <p>comments: {article.comment_count}</p>
       <Comments></Comments>
     </>

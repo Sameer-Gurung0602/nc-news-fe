@@ -5,7 +5,6 @@ import Comment from "./comment";
 function Comments() {
   let params = useParams();
   let article_id = params.article_id;
-  console.log(article_id);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const [comments, setComments] = useState([]);
@@ -15,7 +14,6 @@ function Comments() {
         `https://nc-news-xnco.onrender.com/api/articles/${article_id}/comments`
       )
       .then(({ data }) => {
-        console.log(data.comments);
         setIsLoading(false);
         setComments(data.comments);
       })

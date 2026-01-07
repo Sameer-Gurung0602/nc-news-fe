@@ -1,44 +1,75 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+* {
+  margin-left: auto;
+  margin-right: auto;
   text-align: center;
 }
+
 ol li {
   list-style-type: none;
 }
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+
+#title {
+  text-align: center;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.button-container {
+  display: flex; /* Aligns items horizontally */
+  gap: 10px; /* Adds space between buttons */
+  justify-content: left; /* Centers buttons within the container */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+#articles-header {
+  padding-top: 0px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+}
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 5px;
+}
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
 .card {
-  padding: 2em;
+  width: 500px;
+  background-color: #d5d5d5;
+  border-radius: 8px;
+  overflow: auto;
+  box-shadow: 0px 2x 4px rgba(0, 0, 0, 0.2);
+  margin: 20px;
+  display: grid;
+  grid-template-columns: 3fr, 1fr, 1fr;
+  grid-template-rows: 1fr, 1fr, 1fr;
+  grid-template-areas:
+    "img articles-header date"
+    "img author ."
+    "img . ."
+    "img . .";
+}
+.article-title {
+  grid-area: articles-header;
 }
 
-.read-the-docs {
-  color: #888;
+img {
+  grid-area: img;
+}
+.card img {
+  width: 100%;
+  height: auto;
+}
+.card-content {
+  padding: 16px;
+}
+.card-content h3 {
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+.card-content p {
+  color: #666;
+  font-size: 15px;
+  line-height: 1.3;
 }
