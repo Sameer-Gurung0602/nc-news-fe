@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Comment from "./comment";
+import CommentForm from "./commentform";
 function Comments() {
   let params = useParams();
   let article_id = params.article_id;
@@ -31,8 +32,10 @@ function Comments() {
     <p>Error</p>;
   }
   return (
-    <div>
+    <div class="comments">
       <h2>Comments</h2>
+      <p>Write Something...</p>
+      <CommentForm></CommentForm>
       <ol>
         {comments.map((comment) => (
           <Comment key={comment.comment_id} comment={comment} />
