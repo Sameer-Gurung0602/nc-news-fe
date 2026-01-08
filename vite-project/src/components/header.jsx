@@ -1,6 +1,7 @@
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 
 function Header() {
+  const [searchParams, setSearchParams] = useSearchParams();
   return (
     <header>
       <Link to="/">

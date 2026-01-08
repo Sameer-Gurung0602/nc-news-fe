@@ -2,17 +2,22 @@ import axios from "axios";
 import { useState } from "react";
 import { useEffect } from "react";
 import Article from "./article";
-import { useParams } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 import Skeleton from "./skeleton";
+import SortBy from "./sortBy";
 function Articles() {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const [articles, setArticles] = useState([]);
+  const [searchParams, setSearchParams] = useSearchParams();
   let params = useParams();
   let topic = params.topic;
   //extract out axios
   //conditional url based on params
   let url = `https://nc-news-xnco.onrender.com/api/articles`;
+  let searchStrings = searchParams.toString();
+  let sort_by = searchParams.get("sort_by");
+  let order = searchParams.get("order");
   if (topic) {
     console.log(topic);
     url += `?topic=${topic}`;
@@ -20,7 +25,7 @@ function Articles() {
   }
   useEffect(() => {
     axios
-      .get(url)
+      .get(url, { params: { sort_by: sort_by, order: order } })
       .then(({ data }) => {
         setIsLoading(false);
         setArticles(data.articles);
@@ -30,7 +35,7 @@ function Articles() {
         console.log(error);
         setIsLoading(false);
       });
-  }, [topic]);
+  }, [topic, params]);
 
   if (isLoading) {
     return <Skeleton></Skeleton>;
@@ -42,6 +47,7 @@ function Articles() {
     return (
       <>
         <h2 id="articles-header">Articles</h2>
+        <SortBy></SortBy>
         <h3>{topic}</h3>
         <div class="card-container">
           <ol>
@@ -56,7 +62,7 @@ function Articles() {
   return (
     <>
       <h2 id="articles-header">Articles</h2>
-
+      <SortBy></SortBy>
       <div class="card-container">
         <ol>
           {articles.map((article) => (
