@@ -13,11 +13,11 @@ function Article({ article }) {
             <div class="card-content">
               <h3 class="article-title">{article.title}</h3>
 
-              <p>topic/{article.topic}</p>
-              <p>Author: {article.author}</p>
-              <p>Votes: {article.votes}</p>
-              <p>Comments: {article.comment_count} </p>
-              <p>Date: {article.created_at.slice(0, 10)}</p>
+              <p class="topic">topic/{article.topic}</p>
+              <p class="author">Author: {article.author}</p>
+              <p class="votes">Votes: {article.votes}</p>
+              <p class="comments">Comments: {article.comment_count} </p>
+              <p class="date">Date: {article.created_at.slice(0, 10)}</p>
             </div>
           </div>
         </li>

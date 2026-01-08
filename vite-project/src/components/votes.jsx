@@ -2,7 +2,7 @@ import upvoteEmpty from "../assets/upvoteEmpty.svg";
 import upvotedFilled from "../assets/upvotedFilled.svg";
 import downvoteEmpty from "../assets/downvoteEmpty.svg";
 import downvoteFilled from "../assets/downvoteFilled.svg";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 function Votes({ vote }) {

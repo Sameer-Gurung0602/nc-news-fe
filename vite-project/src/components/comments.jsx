@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Comment from "./comment";
 import CommentForm from "./commentform";
+import Skeleton from "./skeleton";
 function Comments() {
   let params = useParams();
   let article_id = params.article_id;
@@ -26,10 +27,10 @@ function Comments() {
   });
 
   if (isLoading) {
-    <p>Loading...</p>;
+    <Skeleton></Skeleton>;
   }
   if (error) {
-    <p>Error</p>;
+    <p>{error.message}</p>;
   }
   return (
     <div class="comments">
