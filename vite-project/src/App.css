@@ -21,6 +21,7 @@ ol li {
 
 #title {
   text-align: center;
+  background-color: grey;
 }
 
 #articles-header {
@@ -47,36 +48,30 @@ ol li {
 }
 
 .card {
+  display: flex;
   width: 1000px;
-  background-color: #d5d5d5;
-  border-radius: 8px;
-  overflow: hidden;
-  margin: 20px;
-  display: grid;
-  grid-template-columns: 3fr 1fr 1fr;
-  grid-template-rows: auto auto auto auto;
-  grid-template-areas:
-    "img articles-header articles-header"
-    "img author date"
-    "img topic ."
-    "img votes comments";
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  transition: box-shadow 0.2s ease;
-}
-
-.card:hover {
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .card img {
-  grid-area: img;
+  width: 300px;
+  object-fit: cover;
+}
+
+.card-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-areas:
+    "title title title"
+    "author . date"
+    "topic . ."
+    "votes comments .";
+  padding: 16px;
 }
 
 .article-title {
-  grid-area: articles-header;
-  text-align: left;
+  grid-area: title;
 }
-.card .topic {
+.topic {
   grid-area: topic;
 }
 .author {
@@ -91,21 +86,11 @@ ol li {
 .date {
   grid-area: date;
 }
-.card-content {
-  padding: 16px;
-  text-align: left;
+
+.card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-.card-content h3 {
-  font-size: 28px;
-  margin: 0 0 8px;
-}
-
-.card-content p {
-  color: #666;
-  font-size: 15px;
-  line-height: 1.3;
-}
 #commentButton {
   background-color: green;
 }
@@ -157,4 +142,31 @@ ol li {
 }
 .dropdown :hover .dropbtn {
   background-color: #3e8e41;
+}
+
+.layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.topics {
+  width: 240px;
+  background: grey;
+  padding: 0 30px;
+}
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.articles {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+}
+
+#articles-header {
+  margin-bottom: 10px;
 }

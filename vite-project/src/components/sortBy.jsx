@@ -13,12 +13,12 @@ export default function SortBy() {
         <button
           onClick={() => setSearchParams("?sort_by=created_at&order=DESC")}
         >
-          Date oldest
+          Oldest
         </button>
         <button
           onClick={() => setSearchParams("?sort_by=created_at&order=ASC")}
         >
-          Date newest
+          Newest
         </button>
         <button
           onClick={() => setSearchParams("?sort_by=comment_count&order=DESC")}
@@ -31,10 +31,10 @@ export default function SortBy() {
           Least commented
         </button>
         <button onClick={() => setSearchParams("?sort_by=votes&order=DESC")}>
-          Most voted
+          Top
         </button>
         <button onClick={() => setSearchParams("?sort_by=votes&order=ASC")}>
-          Least voted
+          Controversial
         </button>
       </div>
     </div>

@@ -18,9 +18,6 @@ function Articles() {
   let sort_by = searchParams.get("sort_by");
   let order = searchParams.get("order");
 
-  // if (topic !== "coding" && topic !== "football" && topic !== "cooking") {
-  //   return <p>404 not found</p>;
-  // }
   useEffect(() => {
     axios
       .get(url, { params: { sort_by: sort_by, order: order, topic: topic } })
@@ -60,17 +57,18 @@ function Articles() {
     );
   }
   return (
-    <>
+    <section className="articles">
       <h2 id="articles-header">Articles</h2>
-      <SortBy></SortBy>
-      <div class="card-container">
+      <SortBy />
+
+      <div className="card-container">
         <ol>
           {articles.map((article) => (
             <Article key={article.article_id} article={article} />
           ))}
         </ol>
       </div>
-    </>
+    </section>
   );
 }
 

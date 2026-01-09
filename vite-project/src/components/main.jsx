@@ -2,10 +2,11 @@ import Articles from "./articles";
 import Topics from "./topics";
 function Main() {
   return (
-    <>
-      <Articles />
+    <div class="layout">
       <Topics />
-    </>
+
+      <Articles />
+    </div>
   );
 }
 export default Main;
