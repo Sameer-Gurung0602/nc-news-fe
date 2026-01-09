@@ -9,7 +9,6 @@ function CommentForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (comment.length === 0) {
-      alert("comment must be filled out!");
       return;
     }
     console.log(typeof comment);
@@ -36,6 +35,7 @@ function CommentForm() {
           type="text"
           value={comment}
           onChange={(event) => setComment(event.target.value)}
+          required
         />
         <button id="commentButton" type="submit">
           Post

@@ -15,17 +15,12 @@ function Articles() {
   //extract out axios
   //conditional url based on params
   let url = `https://nc-news-xnco.onrender.com/api/articles`;
-  let searchStrings = searchParams.toString();
   let sort_by = searchParams.get("sort_by");
   let order = searchParams.get("order");
-  if (topic) {
-    console.log(topic);
-    url += `?topic=${topic}`;
-    console.log(url);
-  }
+
   useEffect(() => {
     axios
-      .get(url, { params: { sort_by: sort_by, order: order } })
+      .get(url, { params: { sort_by: sort_by, order: order, topic: topic } })
       .then(({ data }) => {
         setIsLoading(false);
         setArticles(data.articles);
@@ -41,8 +36,11 @@ function Articles() {
     return <Skeleton></Skeleton>;
   }
   if (error) {
-    <p>{error.message}</p>;
+    return <p>{error.message}</p>;
   }
+  // if (topic !== "coding" && topic !== "football" && topic !== "cooking") {
+  //   return <p>404 not found</p>;
+  // }
   if (topic) {
     return (
       <>

@@ -31,7 +31,7 @@ function ArticlePage() {
     return <Skeleton></Skeleton>;
   }
   if (error) {
-    <p>{error.message}</p>;
+    return <p>{error.message}</p>;
   }
 
   return (

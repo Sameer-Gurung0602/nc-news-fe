@@ -8,6 +8,10 @@ function Topics() {
       .get("https://nc-news-xnco.onrender.com/api/topics")
       .then(({ data }) => {
         setTopics(data.topics);
+      })
+      .catch((error) => {
+        console.log(error);
+        console.log(1);
       });
   }, []);
   return (
