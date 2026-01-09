@@ -18,6 +18,9 @@ function Articles() {
   let sort_by = searchParams.get("sort_by");
   let order = searchParams.get("order");
 
+  // if (topic !== "coding" && topic !== "football" && topic !== "cooking") {
+  //   return <p>404 not found</p>;
+  // }
   useEffect(() => {
     axios
       .get(url, { params: { sort_by: sort_by, order: order, topic: topic } })
@@ -26,8 +29,9 @@ function Articles() {
         setArticles(data.articles);
       })
       .catch((error) => {
-        setError(error);
         console.log(error);
+
+        setError(error);
         setIsLoading(false);
       });
   }, [topic, params]);
@@ -38,9 +42,7 @@ function Articles() {
   if (error) {
     return <p>{error.message}</p>;
   }
-  // if (topic !== "coding" && topic !== "football" && topic !== "cooking") {
-  //   return <p>404 not found</p>;
-  // }
+
   if (topic) {
     return (
       <>
